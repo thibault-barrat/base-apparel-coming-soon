@@ -10,12 +10,12 @@ body {
     min-height: 100vh;
     margin: 0;
     display: grid;
-    grid-template-columns: auto 43%;
+    grid-template-columns: auto 42%;
     grid-template-rows: min-content min-content 1fr;
     font-size: 16px;
     font-family: $josefin;
     @media screen and (min-width: $breakpoint) {
-        background: url('../images/bg-pattern-desktop.svg');
+        overflow: hidden;
     }
 
 }
@@ -39,9 +39,10 @@ body {
     @media screen and (min-width: $breakpoint) {
         grid-column: 2;
         grid-row: 1 / span 3;
-        max-height: 100vh;
-        max-width: 610px;
-        justify-self: end;
+        justify-self: start;
+        min-width: 100%;
+        min-height: 100vh;
+        width: auto;
     }
 }
 
@@ -51,6 +52,20 @@ body {
     color: $desaturated-red;
     margin: 0 32px;
     text-align: center;
+    &::before {
+        @media screen and (min-width: $breakpoint) {
+            background: url('../images/bg-pattern-desktop.svg'), $background-gradient;
+            height: 100vh;
+            width: 58%;
+            content: '';
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            background-size: cover;
+        }
+    }
     @media screen and (min-width: $breakpoint) {
         grid-column: 1;
         text-align: left;
@@ -65,7 +80,7 @@ body {
         letter-spacing: 0.244em;
         line-height: 1.2;
         @media screen and (min-width: $breakpoint) {
-            font-size: 45px;
+            font-size: 48px;
             margin-top: 0;
         }
         &--brown {
@@ -78,6 +93,7 @@ body {
        letter-spacing: -0.037em;
        @media screen and (min-width: $breakpoint) {
         line-height: 1.6;
+        margin: 25px 0;
     }
     }
     &__signin {

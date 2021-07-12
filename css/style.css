@@ -9,7 +9,7 @@ body {
   min-height: 100vh;
   margin: 0;
   display: grid;
-  grid-template-columns: auto 43%;
+  grid-template-columns: auto 42%;
   grid-template-rows: -webkit-min-content -webkit-min-content 1fr;
   grid-template-rows: min-content min-content 1fr;
   font-size: 16px;
@@ -17,7 +17,7 @@ body {
 }
 @media screen and (min-width: 768px) {
   body {
-    background: url("../images/bg-pattern-desktop.svg");
+    overflow: hidden;
   }
 }
 
@@ -44,9 +44,10 @@ body {
   .hero-image {
     grid-column: 2;
     grid-row: 1/span 3;
-    max-height: 100vh;
-    max-width: 610px;
-    justify-self: end;
+    justify-self: start;
+    min-width: 100%;
+    min-height: 100vh;
+    width: auto;
   }
 }
 
@@ -56,6 +57,20 @@ body {
   color: #ce9797;
   margin: 0 32px;
   text-align: center;
+}
+@media screen and (min-width: 768px) {
+  .content::before {
+    background: url("../images/bg-pattern-desktop.svg"), linear-gradient(135deg, white, #fff5f5);
+    height: 100vh;
+    width: 58%;
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    background-size: cover;
+  }
 }
 @media screen and (min-width: 768px) {
   .content {
@@ -75,7 +90,7 @@ body {
 }
 @media screen and (min-width: 768px) {
   .content__title {
-    font-size: 45px;
+    font-size: 48px;
     margin-top: 0;
   }
 }
@@ -90,6 +105,7 @@ body {
 @media screen and (min-width: 768px) {
   .content__paragraph {
     line-height: 1.6;
+    margin: 25px 0;
   }
 }
 .content__signin {
